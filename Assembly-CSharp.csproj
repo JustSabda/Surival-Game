@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}</ProjectGuid>
+    <ProjectGuid>{50D81A3A-A4DE-E334-F0FD-F8258C126A40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,10 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\MovePlayer.cs" />
+    <Compile Include="Assets\Scripts\InteractableObject.cs" />
     <Compile Include="Assets\PlayerCode.cs" />
-    <Compile Include="Assets\Scripts\MouseMove.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\MovePlayer.cs" />
+    <Compile Include="Assets\Scripts\SelectionManager.cs" />
+    <Compile Include="Assets\Scripts\MouseMove.cs" />
+    <Compile Include="Assets\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
+    <Compile Include="Assets\Scripts\AIMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
