@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
     public CharacterController controller;
 
-    public float speed = 12f;
+    public float maxEnergy;
+    public float currentEnergy;
+    public Slider energySlider;
+
+    //Movement
+    public float speed;
+    public float runspeed = 24f;
+    public float walkspeed = 12f;
+
+
     public float gravity = -9.81f * 2;
     public float jumpHeight = 3f;
 
@@ -18,11 +28,16 @@ public class PlayerMove : MonoBehaviour
 
     bool isGrounded;
 
+    void Start()
+    {
+        currentEnergy = maxEnergy;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        //checking if we hit the ground to reset our falling velocity, otherwise we will fall faster the next time
+        
+        
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -34,16 +49,21 @@ public class PlayerMove : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        //right is the red Axis, foward is the blue axis
+        
         Vector3 move = transform.right * x + transform.forward * z;
-
+        
         controller.Move(move * speed * Time.deltaTime);
+        move = move.normalized * speed;
 
-        //check if the player is on the ground so he can jump
+        
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            //the equation for jumping
+            
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed = runspeed;
         }
 
 
